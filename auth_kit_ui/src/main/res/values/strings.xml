@@ -1,0 +1,66 @@
+<resources>
+    <string name="sign_in_method_label">SIGN IN METHODS</string>
+    <string name="email_label">Email</string>
+    <string name="google_label">Google</string>
+    <string name="purchases_label">PURCHASES</string>
+    <string name="store_label">STORE</string>
+    <string name="caution_zone_label">CAUTION ZONE</string>
+    <string name="name_label">NAME</string>
+    <string name="account_label">Account</string>
+    <string name="anonymous_label">Anonymous</string>
+    <string name="unknown_label">unknown</string>
+    <string name="first_name_label">First Name</string>
+    <string name="last_name_label">Last Name</string>
+    <string name="name_input_label">Name</string>
+    <string name="password_label">Password</string>
+    <string name="delete_label">Delete</string>
+    <string name="link_label">Link</string>
+    <string name="un_link_label">Unlink</string>
+    <string name="delete_data_label">Delete all data</string>
+    <string name="delete_data_description_label">Erase all settings and data within the app</string>
+    <string name="delete_account_label">Delete account</string>
+    <string name="delete_account_description_label">Permanently remove your profile and all associated data</string>
+    <string name="google_sign_in_button">Sign in with Google</string>
+    <string name="continue_button">Continue</string>
+    <string name="welcome_to_app"><![CDATA[Welcome to <a href="">%1$s</a>]]></string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="reset_button">Reset</string>
+    <string name="or_text">or</string>
+    <string name="sign_up_text">Sign up</string>
+    <string name="account_create_question">You don\'t have account?</string>
+    <string name="sign_up_question"><![CDATA[You don\'t have account? <a href="">Sign up</a>]]></string>
+    <string name="forget_password"><![CDATA[<a href="">Forgot password?</a>]]></string>
+    <string name="guest_login"><![CDATA[<a href="">Continue as Guest</a>]]></string>
+    <string name="forget_password_label">Forgot your password?</string>
+    <string name="reauth_label">Reauthenticate</string>
+    <string name="ok_button">OK</string>
+    <string name="dismiss_button">Dismiss</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="sign_out_label">Sign out</string>
+    <string name="success_label">Success</string>
+    <string name="error_label">Error</string>
+    <string name="confirm_label">Confirmation</string>
+
+    <string name="agreement_text">By selecting Sign Up bellow, I agree to Terms of Service and Privacy Policy</string>
+    <string name="term">Terms of Service</string>
+    <string name="policy">Privacy Policy</string>
+
+    <string name="password_short_error">Password must have at least 6 characters</string>
+
+    <string name="sign_in_success">Sign in successfully!</string>
+    <string name="un_link_success">Unlink successfully!</string>
+    <string name="link_success">Link Successfully!</string>
+    <string name="sign_up_success">Sign up successfully!</string>
+    <string name="reset_password_success">Reset password mail has been sent successfully!\nPlease check your email!</string>
+    <string name="delete_data_success">All data has been successfully deleted</string>
+
+    <string name="delete_account_confirm">Delete your account?</string>
+    <string name="delete_data_confirm">Delete your all data?</string>
+    <string name="un_link_confirm">Are you sure to unlink this provider?</string>
+    <string name="sign_out_confirm">Do you want to sign out?</string>
+
+    <string name="user_not_found_error">User not found!</string>
+    <string name="require_reauth_error">You need to reauthenticate to do this action!</string>
+    <string name="invalid_provider_error">Invalid provider!</string>
+    <string name="un_supported_credential_error">Unsupported credential!</string>
+</resources>

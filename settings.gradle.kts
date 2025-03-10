@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "auth-kit-aos"
+rootProject.name = "auth-android"
 
 include(":app_sample_2")
 

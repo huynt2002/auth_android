@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "me.auth_kit_aos.auth_sample_2"
+    namespace = "me.auth_android.auth_sample_2"
     compileSdk = 35
 
     defaultConfig {
@@ -48,9 +48,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(project(":auth_kit_ui"))
     implementation(project(":auth_kit"))
-    implementation(project(":firebase_auth"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

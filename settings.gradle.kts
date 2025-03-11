@@ -20,8 +20,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "auth-android"
+rootProject.name = "auth_android"
 
 include(":app_sample_2")
 
-include(":auth_kit", ":utils", ":auth_kit_ui", ":firebase_auth")
+include(":auth_kit")

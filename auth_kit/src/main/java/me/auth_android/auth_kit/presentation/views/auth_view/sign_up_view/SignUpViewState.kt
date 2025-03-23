@@ -6,7 +6,7 @@ import me.auth_android.auth_kit.presentation.utils.getEmailValid
 import me.auth_android.auth_kit.presentation.utils.getPasswordValid
 
 @Immutable
-data class SignUpViewState(
+internal data class SignUpViewState(
     val userName: String = "",
     val isUserNameValid: Boolean = userName.isNotBlank(),
     val email: String = "",
@@ -16,6 +16,6 @@ data class SignUpViewState(
     val popUpState: PopUpState = PopUpState.None,
 )
 
-enum class SignUpViewNavigateEvent {
+internal enum class SignUpViewNavigateEvent {
     ToSignIn
 }

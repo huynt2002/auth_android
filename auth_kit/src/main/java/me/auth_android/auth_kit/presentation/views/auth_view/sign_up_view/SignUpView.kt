@@ -40,7 +40,7 @@ import me.auth_android.auth_kit.presentation.components.PasswordTextField
 import me.auth_android.auth_kit.presentation.components.PopUpView
 
 @Composable
-fun SignUpView(
+internal fun SignUpView(
     navigateBack: () -> Unit,
     email: String = "",
     viewModel: SignUpViewModel = hiltViewModel<SignUpViewModel>(),

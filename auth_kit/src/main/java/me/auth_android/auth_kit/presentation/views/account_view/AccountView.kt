@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view
+package me.auth_android.auth_kit.presentation.views.account_view
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
@@ -56,8 +56,9 @@ import coil3.compose.AsyncImagePainter
 import coil3.compose.rememberAsyncImagePainter
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import me.auth_android.auth_kit.data.auth.AuthProvider
 import me.auth_android.auth_kit.R
+import me.auth_android.auth_kit.data.auth.AuthProvider
+import me.auth_android.auth_kit.presentation.components.AdaptiveView
 import me.auth_android.auth_kit.presentation.components.EmailInputField
 import me.auth_android.auth_kit.presentation.components.PasswordTextField
 import me.auth_android.auth_kit.presentation.components.PopUpView
@@ -71,7 +72,7 @@ fun AccountView(
     toReAuth: () -> Unit,
     viewModel: AccountViewModel = hiltViewModel<AccountViewModel>(),
 ) {
-    AccountViewContent(toSignInView, onNavigateBack, toReAuth, viewModel)
+    AdaptiveView { AccountViewContent(toSignInView, onNavigateBack, toReAuth, viewModel) }
 }
 
 @Composable

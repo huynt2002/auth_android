@@ -9,14 +9,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import me.auth_android.auth_kit.R
-import me.auth_android.auth_kit.presentation.components.CompactView
-import me.auth_android.auth_kit.presentation.components.MediumOrExpandView
+import me.auth_android.auth_kit.presentation.components.AdaptiveView
+import me.auth_android.auth_kit.presentation.utils.Route
+import me.auth_android.auth_kit.presentation.utils.getCurrentRoute
 import me.auth_android.auth_kit.presentation.views.auth_view.reset_password_view.ResetPasswordView
 import me.auth_android.auth_kit.presentation.views.auth_view.sign_in_view.SignInView
 import me.auth_android.auth_kit.presentation.views.auth_view.sign_up_view.SignUpView
-import me.auth_android.auth_kit.presentation.utils.LocalWindowClass
-import me.auth_android.auth_kit.presentation.utils.Route
-import me.auth_android.auth_kit.presentation.utils.getCurrentRoute
 import me.rolingo.core.ui.animation.BackDropEffect
 import me.rolingo.core.ui.animation.enterPop
 import me.rolingo.core.ui.animation.enterPush
@@ -25,7 +23,7 @@ import me.rolingo.core.ui.animation.exitPush
 
 @Composable
 fun AuthView(appName: String, appImage: Painter, onAuthorized: () -> Unit) {
-    val content: @Composable () -> Unit = {
+    AdaptiveView {
         val navController = rememberNavController()
         val toSignUpView: (String) -> Unit = { email ->
             navController.navigate(Route.SignUp(email))
@@ -45,7 +43,7 @@ fun AuthView(appName: String, appImage: Painter, onAuthorized: () -> Unit) {
 
                 BackDropEffect(
                     currentNavigationRoute,
-                    Route.SignIn,
+                    Route.SignIn::class.simpleName.toString(),
                     {
                         SignInView(
                             appName,
@@ -78,12 +76,6 @@ fun AuthView(appName: String, appImage: Painter, onAuthorized: () -> Unit) {
                 ResetPasswordView(navigateBack, email)
             }
         }
-    }
-    val windowClass = LocalWindowClass.getLocalWindowClass()
-    if (windowClass == LocalWindowClass.WindowClass.COMPACT) {
-        CompactView(content)
-    } else {
-        MediumOrExpandView(content)
     }
 }
 

@@ -14,7 +14,7 @@ import me.auth_android.auth_kit.data.sessionService.SessionService
 
 @Module
 @InstallIn(SingletonComponent::class)
-object FirebaseModule {
+internal object FirebaseModule {
     @Provides fun auth(): FirebaseAuth = Firebase.auth
 
     @Provides fun context(@ApplicationContext context: Context): Context = context

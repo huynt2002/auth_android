@@ -10,15 +10,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import me.auth_android.auth_kit.presentation.utils.Route
 
 @Composable
 fun BackDropEffect(
     currentNavigationRoute: String?,
-    effectedRoute: Route,
+    effectedRouteClassSimpleName: String,
     content: @Composable () -> Unit,
 ) {
-    var currentNavigated = isCurrentNavigatedRoute(currentNavigationRoute, effectedRoute)
+    var currentNavigated =
+        isCurrentNavigatedRoute(currentNavigationRoute, effectedRouteClassSimpleName)
     LaunchedEffect(true) {
         if (!currentNavigated) {
             currentNavigated = true
@@ -40,7 +40,7 @@ fun BackDropEffect(
 
 private fun isCurrentNavigatedRoute(
     currentNavigationRouteName: String?,
-    effectedRoute: Route,
+    effectedRouteClassSimpleName: String,
 ): Boolean {
-    return currentNavigationRouteName?.contains(effectedRoute::class.simpleName.toString()) == true
+    return currentNavigationRouteName?.contains(effectedRouteClassSimpleName) == true
 }

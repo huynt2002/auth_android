@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import kotlinx.serialization.Serializable
 
-sealed interface Route {
+internal sealed interface Route {
 
     @Serializable object SignIn : Route
 
@@ -15,8 +15,7 @@ sealed interface Route {
 }
 
 @Serializable
-sealed interface OnAppAuthRoute : Route {
-    @Serializable object AccountView : OnAppAuthRoute
+internal sealed interface OnAppAuthRoute : Route {
 
     @Serializable object ReAuthView : OnAppAuthRoute
 

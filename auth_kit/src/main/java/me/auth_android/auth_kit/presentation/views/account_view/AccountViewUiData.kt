@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view
+package me.auth_android.auth_kit.presentation.views.account_view
 
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
@@ -24,10 +24,10 @@ data class AccountViewItem(
     val icon: Painter? = null,
     val description: String = "",
     val descriptionStyle: TextStyle = TextStyle(),
-    val subcription: ItemSubcription? = null,
+    val subscription: ItemSubscription? = null,
 )
 
-data class ItemSubcription(
+data class ItemSubscription(
     val text: String = "Basic",
     val style: TextStyle = TextStyle(),
     val onClick: () -> Unit = {},

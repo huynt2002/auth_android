@@ -7,5 +7,7 @@ sealed interface Route {
 
     @Serializable object Auth : Route
 
-    @Serializable object OnAppAuthView : Route
+    @Serializable object Account : Route
+
+    @Serializable object ReAuth : Route
 }

@@ -12,14 +12,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import me.auth_android.auth_kit.presentation.utils.LocalWindowClass
 
 @Composable
-fun CompactView(content: @Composable () -> Unit) {
+fun AdaptiveView(content: @Composable () -> Unit) {
+    val windowClass = LocalWindowClass.getLocalWindowClass()
+    if (windowClass == LocalWindowClass.WindowClass.COMPACT) {
+        CompactView(content)
+    } else {
+        MediumOrExpandView(content)
+    }
+}
+
+@Composable
+private fun CompactView(content: @Composable () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) { content() }
 }
 
 @Composable
-fun MediumOrExpandView(content: @Composable () -> Unit) {
+private fun MediumOrExpandView(content: @Composable () -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)),
         contentAlignment = Alignment.Center,

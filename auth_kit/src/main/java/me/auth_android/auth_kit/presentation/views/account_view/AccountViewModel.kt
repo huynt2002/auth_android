@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view
+package me.auth_android.auth_kit.presentation.views.account_view
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -23,8 +23,6 @@ import me.auth_android.auth_kit.presentation.components.PopUpState
 import me.auth_android.auth_kit.presentation.components.QuestionType
 import me.auth_android.auth_kit.presentation.components.SuccessType
 import me.auth_android.auth_kit.presentation.utils.asUiText
-import me.auth_android.auth_kit.presentation.views.account_view.AccountViewNavigateEvent
-import me.auth_android.auth_kit.presentation.views.account_view.AccountViewState
 import me.auth_android.auth_kit.utils.Failure
 import me.auth_android.auth_kit.utils.Success
 import me.auth_android.auth_kit.utils.Result

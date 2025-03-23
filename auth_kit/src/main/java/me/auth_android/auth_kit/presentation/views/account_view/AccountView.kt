@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view
+package me.auth_android.auth_kit.presentation.views.account_view
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
@@ -56,8 +56,9 @@ import coil3.compose.AsyncImagePainter
 import coil3.compose.rememberAsyncImagePainter
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import me.auth_android.auth_kit.data.auth.AuthProvider
 import me.auth_android.auth_kit.R
+import me.auth_android.auth_kit.data.auth.AuthProvider
+import me.auth_android.auth_kit.presentation.components.AdaptiveView
 import me.auth_android.auth_kit.presentation.components.EmailInputField
 import me.auth_android.auth_kit.presentation.components.PasswordTextField
 import me.auth_android.auth_kit.presentation.components.PopUpView
@@ -71,7 +72,7 @@ fun AccountView(
     toReAuth: () -> Unit,
     viewModel: AccountViewModel = hiltViewModel<AccountViewModel>(),
 ) {
-    AccountViewContent(toSignInView, onNavigateBack, toReAuth, viewModel)
+    AdaptiveView { AccountViewContent(toSignInView, onNavigateBack, toReAuth, viewModel) }
 }
 
 @Composable
@@ -144,14 +145,14 @@ private fun AccountViewContent(
                     AccountViewItem(
                         text = "Plan",
                         textStyle = itemTitleStyle,
-                        subcription = ItemSubcription("Basic"),
+                        subscription = ItemSubscription("Basic"),
                     ),
                     AccountViewItem(
                         text = "Practice Times",
                         textStyle = itemTitleStyle,
                         description = "10 minutes of practice will be renewed every month",
                         descriptionStyle = itemDescriptionStyle,
-                        subcription = ItemSubcription("0 minutes"),
+                        subscription = ItemSubscription("0 minutes"),
                     ),
                 ),
         )
@@ -171,10 +172,10 @@ private fun AccountViewContent(
                         icon = painterResource(R.drawable.baseline_mail_outline),
                         description = emailMethod?.email ?: "",
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
+                        subscription =
                             if (emailMethod?.isLinked == true && oneProvider) null
                             else
-                                ItemSubcription(
+                                ItemSubscription(
                                     text =
                                         if (emailMethod?.isLinked == true) {
                                             stringResource(R.string.un_link_label)
@@ -195,10 +196,10 @@ private fun AccountViewContent(
                         description = ggMethod?.email ?: "",
                         descriptionStyle = itemDescriptionStyle,
                         icon = painterResource(R.drawable.google_icon),
-                        subcription =
+                        subscription =
                             if (ggMethod?.isLinked == true && oneProvider) null
                             else
-                                ItemSubcription(
+                                ItemSubscription(
                                     text =
                                         if (ggMethod?.isLinked == true) {
                                             stringResource(R.string.un_link_label)
@@ -226,8 +227,8 @@ private fun AccountViewContent(
                         textStyle = itemTitleStyle,
                         description = stringResource(R.string.delete_data_description_label),
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
-                            ItemSubcription(
+                        subscription =
+                            ItemSubscription(
                                 text = stringResource(R.string.delete_label),
                                 style = TextStyle(color = MaterialTheme.colorScheme.error),
                                 onClick = { viewModel.onDeleteDataClick() },
@@ -238,8 +239,8 @@ private fun AccountViewContent(
                         textStyle = itemTitleStyle,
                         description = stringResource(R.string.delete_account_description_label),
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
-                            ItemSubcription(
+                        subscription =
+                            ItemSubscription(
                                 text = stringResource(R.string.delete_label),
                                 style = TextStyle(color = MaterialTheme.colorScheme.error),
                                 onClick = { viewModel.onDeleteAccountClick() },
@@ -500,12 +501,12 @@ private fun AccountViewItemUI(item: AccountViewItem, divider: Boolean = false) {
                         Text(text = item.description, style = item.descriptionStyle)
                     }
                 }
-                if (item.subcription != null) {
+                if (item.subscription != null) {
                     TextButton(
-                        onClick = item.subcription.onClick,
+                        onClick = item.subscription.onClick,
                         modifier = Modifier.wrapContentWidth(),
                     ) {
-                        Text(text = item.subcription.text, style = item.subcription.style)
+                        Text(text = item.subscription.text, style = item.subscription.style)
                     }
                 }
             }

@@ -21,7 +21,7 @@ import me.auth_android.auth_kit.utils.Failure
 import me.auth_android.auth_kit.utils.Success
 
 @HiltViewModel
-class SignUpViewModel
+internal class SignUpViewModel
 @Inject
 constructor(private val accountService: Authenticating, val termAndPolicyLinks: List<String>) :
     ViewModel() {

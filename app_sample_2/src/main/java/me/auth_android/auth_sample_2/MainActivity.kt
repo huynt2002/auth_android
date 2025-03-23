@@ -16,7 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.auth_android.auth_kit.presentation.views.account_view.AccountView
 import me.auth_android.auth_kit.presentation.views.auth_view.AuthView
-import me.auth_android.auth_kit.presentation.views.on_app_auth_view.OnAppAuthView
+import me.auth_android.auth_kit.presentation.views.on_app_auth_view.AppReAuthView
 import me.auth_android.auth_sample_2.presentation.AppView
 import me.auth_android.auth_sample_2.ui.theme.Auth_sampleTheme
 import me.auth_android.auth_sample_2.utils.Route
@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable<Route.ReAuth> {
-                                OnAppAuthView(onNavigateBack = { navController.navigateUp() })
+                                AppReAuthView(onNavigateBack = { navController.navigateUp() })
                             }
                         }
                     }

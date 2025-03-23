@@ -21,7 +21,7 @@ import me.rolingo.core.ui.animation.exitPop
 import me.rolingo.core.ui.animation.exitPush
 
 @Composable
-fun OnAppAuthView(onNavigateBack: () -> Unit) {
+fun AppReAuthView(onNavigateBack: () -> Unit) {
     val navHostController = rememberNavController()
     var lastRoute by remember { mutableStateOf(OnAppAuthRoute.ReAuthView::class.java.simpleName) }
     AdaptiveView {

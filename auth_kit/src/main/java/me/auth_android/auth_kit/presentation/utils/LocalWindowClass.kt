@@ -6,7 +6,7 @@ import androidx.window.core.layout.WindowHeightSizeClass
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 
-class LocalWindowClass {
+internal class LocalWindowClass {
     enum class WindowClass {
         COMPACT,
         MEDIUM,

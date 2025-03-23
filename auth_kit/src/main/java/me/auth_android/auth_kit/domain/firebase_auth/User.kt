@@ -7,7 +7,7 @@ import me.auth_android.auth_kit.data.auth.AuthProvider
 import me.auth_android.auth_kit.data.auth.AuthProviderLink
 import me.auth_android.auth_kit.data.auth.AuthUser
 
-data class User(
+internal data class User(
     override val userID: String,
     override val email: String? = null,
     override val isAnonymous: Boolean = false,
@@ -20,7 +20,7 @@ data class User(
     override val userIDToken: suspend () -> String?,
 ) : AuthUser
 
-fun FirebaseUser.toAuthUser(): AuthUser {
+internal fun FirebaseUser.toAuthUser(): AuthUser {
     // temp
     val list: MutableList<AuthProviderLink> = mutableListOf()
     if (!this.isAnonymous) {

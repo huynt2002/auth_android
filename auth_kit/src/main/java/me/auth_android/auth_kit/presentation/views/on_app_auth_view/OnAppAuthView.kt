@@ -11,12 +11,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import me.auth_android.auth_kit.presentation.components.CompactView
 import me.auth_android.auth_kit.presentation.components.MediumOrExpandView
-import me.auth_android.auth_kit.presentation.views.auth_view.reset_password_view.ResetPasswordView
-import me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view.AccountView
-import me.auth_android.auth_kit.presentation.views.on_app_auth_view.reauth_view.ReAuthView
 import me.auth_android.auth_kit.presentation.utils.LocalWindowClass
 import me.auth_android.auth_kit.presentation.utils.OnAppAuthRoute
 import me.auth_android.auth_kit.presentation.utils.getCurrentRoute
+import me.auth_android.auth_kit.presentation.views.auth_view.reset_password_view.ResetPasswordView
+import me.auth_android.auth_kit.presentation.views.on_app_auth_view.reauth_view.ReAuthView
 import me.rolingo.core.ui.animation.BackDropEffect
 import me.rolingo.core.ui.animation.enterPop
 import me.rolingo.core.ui.animation.enterPush
@@ -24,52 +23,28 @@ import me.rolingo.core.ui.animation.exitPop
 import me.rolingo.core.ui.animation.exitPush
 
 @Composable
-fun OnAppAuthView(toSignInView: () -> Unit, onNavigateBack: () -> Unit) {
+fun OnAppAuthView(onNavigateBack: () -> Unit) {
     val navHostController = rememberNavController()
-    val currentRoute = navHostController.getCurrentRoute()
-    var lastRoute by remember { mutableStateOf(OnAppAuthRoute.AccountView.toString()) }
+    var lastRoute by remember { mutableStateOf(OnAppAuthRoute.ReAuthView::class.java.simpleName) }
     val content: @Composable () -> Unit = {
-        NavHost(startDestination = OnAppAuthRoute.AccountView, navController = navHostController) {
-            composable<OnAppAuthRoute.AccountView>() {
-                BackDropEffect(
-                    currentNavigationRoute = currentRoute,
-                    effectedRoute = OnAppAuthRoute.AccountView,
-                ) {
-                    AccountView(
-                        toSignInView = toSignInView,
-                        onNavigateBack = onNavigateBack,
-                        toReAuth = {
-                            navHostController.navigate(OnAppAuthRoute.ReAuthView)
-                            lastRoute = toString()
-                        },
-                    )
-                }
-            }
+        NavHost(startDestination = OnAppAuthRoute.ReAuthView, navController = navHostController) {
             composable<OnAppAuthRoute.ReAuthView>(
                 enterTransition = {
-                    if (lastRoute == toString()) enterPop() else null
+                    if (lastRoute == OnAppAuthRoute.ResetPassword::class.java.simpleName) enterPop()
+                    else null
                 },
-                exitTransition = {
-                    if (
-                        navHostController.currentDestination
-                            ?.route
-                            ?.contains(
-                                OnAppAuthRoute.AccountView::class.qualifiedName.toString()
-                            ) == true
-                    )
-                        null
-                    else exitPop()
-                },
+                exitTransition = { exitPop() },
             ) {
-                BackDropEffect(currentRoute, OnAppAuthRoute.ReAuthView) {
+                val currentRoute = navHostController.getCurrentRoute()
+                BackDropEffect(
+                    currentRoute,
+                    OnAppAuthRoute.ReAuthView::class.simpleName.toString(),
+                ) {
                     ReAuthView(
-                        {
-                            navHostController.navigateUp()
-                            lastRoute = toString()
-                        },
-                        { email ->
+                        onBack = onNavigateBack,
+                        toResetPassword = { email ->
                             navHostController.navigate(OnAppAuthRoute.ResetPassword(email))
-                            lastRoute = toString()
+                            lastRoute = OnAppAuthRoute.ReAuthView::class.java.simpleName
                         },
                     )
                 }
@@ -83,7 +58,7 @@ fun OnAppAuthView(toSignInView: () -> Unit, onNavigateBack: () -> Unit) {
                 ResetPasswordView(
                     {
                         navHostController.navigateUp()
-                        lastRoute = toString()
+                        lastRoute = OnAppAuthRoute.ResetPassword::class.java.simpleName
                     },
                     email,
                 )

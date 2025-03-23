@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.presentation.views.on_app_auth_view.account_view
+package me.auth_android.auth_kit.presentation.views.account_view
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

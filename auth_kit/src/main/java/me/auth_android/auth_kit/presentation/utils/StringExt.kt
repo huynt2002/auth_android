@@ -4,28 +4,28 @@ import android.util.Patterns
 import androidx.annotation.StringRes
 import me.auth_android.auth_kit.R
 
-fun String.getEmailValid(): Boolean {
+internal fun String.getEmailValid(): Boolean {
     return Patterns.EMAIL_ADDRESS.matcher(this).matches() && this.isNotBlank()
 }
 
 private const val MIN_PASS_LENGTH = 6
 
-fun String.getPasswordValid(): Boolean {
+internal fun String.getPasswordValid(): Boolean {
     return this.getPasswordError() == null
 }
 
-fun String.getPasswordError(): PasswordError? {
+internal fun String.getPasswordError(): PasswordError? {
     if (this.length < MIN_PASS_LENGTH) {
         return PasswordError.SHORT
     }
     return null
 }
 
-enum class PasswordError(@StringRes val message: Int) {
+internal enum class PasswordError(@StringRes val message: Int) {
     SHORT(R.string.password_short_error)
 }
 
-fun PasswordError.getMessage(): UiText {
+internal fun PasswordError.getMessage(): UiText {
     return when (this) {
         PasswordError.SHORT -> UiText.StringResource(this.message)
     }

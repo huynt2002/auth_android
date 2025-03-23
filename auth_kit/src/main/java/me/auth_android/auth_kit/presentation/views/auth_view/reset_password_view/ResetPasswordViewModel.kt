@@ -19,7 +19,7 @@ import me.auth_android.auth_kit.utils.Failure
 import me.auth_android.auth_kit.utils.Success
 
 @HiltViewModel
-class ResetPasswordViewModel @Inject constructor(private val accountService: Authenticating) :
+internal class ResetPasswordViewModel @Inject constructor(private val accountService: Authenticating) :
     ViewModel() {
     private val _uiState = MutableStateFlow(ResetPasswordViewState())
     val uiState = _uiState.asStateFlow()

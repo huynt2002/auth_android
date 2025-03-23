@@ -24,7 +24,7 @@ import me.auth_android.auth_kit.utils.Failure
 
 
 @HiltViewModel
-class SignInViewModel @Inject constructor(private val accountService: Authenticating) :
+internal class SignInViewModel @Inject constructor(private val accountService: Authenticating) :
     ViewModel() {
     private val _uiState = MutableStateFlow(SignInViewState())
     val uiState = _uiState.asStateFlow()

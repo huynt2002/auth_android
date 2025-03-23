@@ -45,7 +45,7 @@ fun AuthView(appName: String, appImage: Painter, onAuthorized: () -> Unit) {
 
                 BackDropEffect(
                     currentNavigationRoute,
-                    Route.SignIn,
+                    Route.SignIn::class.simpleName.toString(),
                     {
                         SignInView(
                             appName,

@@ -45,7 +45,7 @@ import me.auth_android.auth_kit.presentation.components.PasswordTextField
 import me.auth_android.auth_kit.presentation.components.PopUpView
 
 @Composable
-fun ReAuthView(
+internal fun ReAuthView(
     onBack: () -> Unit,
     toResetPassword: (String) -> Unit,
     viewModel: ReAuthViewModel = hiltViewModel(),

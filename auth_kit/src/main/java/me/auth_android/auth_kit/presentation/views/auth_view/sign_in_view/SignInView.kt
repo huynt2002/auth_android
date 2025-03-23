@@ -45,7 +45,7 @@ import me.auth_android.auth_kit.presentation.components.PasswordTextField
 import me.auth_android.auth_kit.presentation.components.PopUpView
 
 @Composable
-fun SignInView(
+internal fun SignInView(
     appName: String,
     appImage: Painter,
     onAuthorized: () -> Unit,

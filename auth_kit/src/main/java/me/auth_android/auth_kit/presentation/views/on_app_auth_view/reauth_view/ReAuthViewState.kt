@@ -6,7 +6,7 @@ import me.auth_android.auth_kit.presentation.utils.getEmailValid
 import me.auth_android.auth_kit.presentation.utils.getPasswordValid
 
 @Immutable
-data class ReAuthViewState(
+internal data class ReAuthViewState(
     val email: String = "",
     val isEmailValid: Boolean = email.getEmailValid(),
     val continueClicked: Boolean = false,
@@ -15,7 +15,7 @@ data class ReAuthViewState(
     val popUpState: PopUpState = PopUpState.None,
 )
 
-enum class ReAuthViewNavigateEvent {
+internal enum class ReAuthViewNavigateEvent {
     NavigateBack,
     ToResetPasswordView,
 }

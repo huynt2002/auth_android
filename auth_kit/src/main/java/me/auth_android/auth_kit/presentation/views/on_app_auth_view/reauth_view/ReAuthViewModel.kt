@@ -22,7 +22,7 @@ import me.auth_android.auth_kit.utils.Failure
 import me.auth_android.auth_kit.utils.Success
 
 @HiltViewModel
-class ReAuthViewModel @Inject constructor(private val accountService: Authenticating) :
+internal class ReAuthViewModel @Inject constructor(private val accountService: Authenticating) :
     ViewModel() {
     private val _uiState = MutableStateFlow(ReAuthViewState())
     val uiState = _uiState.asStateFlow()

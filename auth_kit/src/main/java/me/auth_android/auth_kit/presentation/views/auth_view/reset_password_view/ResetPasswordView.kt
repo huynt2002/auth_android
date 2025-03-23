@@ -32,7 +32,7 @@ import me.auth_android.auth_kit.presentation.components.EmailInputField
 import me.auth_android.auth_kit.presentation.components.PopUpView
 
 @Composable
-fun ResetPasswordView(
+internal fun ResetPasswordView(
     navigateBack: () -> Unit,
     email: String = "",
     viewModel: ResetPasswordViewModel = hiltViewModel<ResetPasswordViewModel>(),

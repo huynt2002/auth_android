@@ -145,14 +145,14 @@ private fun AccountViewContent(
                     AccountViewItem(
                         text = "Plan",
                         textStyle = itemTitleStyle,
-                        subcription = ItemSubcription("Basic"),
+                        subscription = ItemSubscription("Basic"),
                     ),
                     AccountViewItem(
                         text = "Practice Times",
                         textStyle = itemTitleStyle,
                         description = "10 minutes of practice will be renewed every month",
                         descriptionStyle = itemDescriptionStyle,
-                        subcription = ItemSubcription("0 minutes"),
+                        subscription = ItemSubscription("0 minutes"),
                     ),
                 ),
         )
@@ -172,10 +172,10 @@ private fun AccountViewContent(
                         icon = painterResource(R.drawable.baseline_mail_outline),
                         description = emailMethod?.email ?: "",
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
+                        subscription =
                             if (emailMethod?.isLinked == true && oneProvider) null
                             else
-                                ItemSubcription(
+                                ItemSubscription(
                                     text =
                                         if (emailMethod?.isLinked == true) {
                                             stringResource(R.string.un_link_label)
@@ -196,10 +196,10 @@ private fun AccountViewContent(
                         description = ggMethod?.email ?: "",
                         descriptionStyle = itemDescriptionStyle,
                         icon = painterResource(R.drawable.google_icon),
-                        subcription =
+                        subscription =
                             if (ggMethod?.isLinked == true && oneProvider) null
                             else
-                                ItemSubcription(
+                                ItemSubscription(
                                     text =
                                         if (ggMethod?.isLinked == true) {
                                             stringResource(R.string.un_link_label)
@@ -227,8 +227,8 @@ private fun AccountViewContent(
                         textStyle = itemTitleStyle,
                         description = stringResource(R.string.delete_data_description_label),
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
-                            ItemSubcription(
+                        subscription =
+                            ItemSubscription(
                                 text = stringResource(R.string.delete_label),
                                 style = TextStyle(color = MaterialTheme.colorScheme.error),
                                 onClick = { viewModel.onDeleteDataClick() },
@@ -239,8 +239,8 @@ private fun AccountViewContent(
                         textStyle = itemTitleStyle,
                         description = stringResource(R.string.delete_account_description_label),
                         descriptionStyle = itemDescriptionStyle,
-                        subcription =
-                            ItemSubcription(
+                        subscription =
+                            ItemSubscription(
                                 text = stringResource(R.string.delete_label),
                                 style = TextStyle(color = MaterialTheme.colorScheme.error),
                                 onClick = { viewModel.onDeleteAccountClick() },
@@ -501,12 +501,12 @@ private fun AccountViewItemUI(item: AccountViewItem, divider: Boolean = false) {
                         Text(text = item.description, style = item.descriptionStyle)
                     }
                 }
-                if (item.subcription != null) {
+                if (item.subscription != null) {
                     TextButton(
-                        onClick = item.subcription.onClick,
+                        onClick = item.subscription.onClick,
                         modifier = Modifier.wrapContentWidth(),
                     ) {
-                        Text(text = item.subcription.text, style = item.subcription.style)
+                        Text(text = item.subscription.text, style = item.subscription.style)
                     }
                 }
             }

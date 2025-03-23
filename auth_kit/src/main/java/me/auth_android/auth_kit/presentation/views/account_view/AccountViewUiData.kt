@@ -24,10 +24,10 @@ data class AccountViewItem(
     val icon: Painter? = null,
     val description: String = "",
     val descriptionStyle: TextStyle = TextStyle(),
-    val subcription: ItemSubcription? = null,
+    val subscription: ItemSubscription? = null,
 )
 
-data class ItemSubcription(
+data class ItemSubscription(
     val text: String = "Basic",
     val style: TextStyle = TextStyle(),
     val onClick: () -> Unit = {},

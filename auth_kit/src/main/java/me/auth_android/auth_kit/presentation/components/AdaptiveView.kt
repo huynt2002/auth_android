@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import me.auth_android.auth_kit.presentation.utils.LocalWindowClass
 
 @Composable
-fun AdaptiveView(content: @Composable () -> Unit) {
+internal fun AdaptiveView(content: @Composable () -> Unit) {
     val windowClass = LocalWindowClass.getLocalWindowClass()
     if (windowClass == LocalWindowClass.WindowClass.COMPACT) {
         CompactView(content)
@@ -28,31 +28,17 @@ fun AdaptiveView(content: @Composable () -> Unit) {
 
 @Composable
 private fun CompactView(content: @Composable () -> Unit) {
-    Scaffold { padding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-        ) {
-            content()
-        }
-    }
-
+    Scaffold { padding -> Box(modifier = Modifier.fillMaxSize().padding(padding)) { content() } }
 }
 
 @Composable
 private fun MediumOrExpandView(content: @Composable () -> Unit) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)),
         contentAlignment = Alignment.Center,
     ) {
         Box(
-            modifier = Modifier
-                .height(600.dp)
-                .width(450.dp)
-                .clip(shape = RoundedCornerShape(16.dp))
+            modifier = Modifier.height(600.dp).width(450.dp).clip(shape = RoundedCornerShape(16.dp))
         ) {
             content()
         }

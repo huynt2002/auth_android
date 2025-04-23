@@ -65,6 +65,7 @@ import me.auth_android.auth_kit.presentation.components.PopUpView
 import me.auth_android.auth_kit.presentation.utils.getEmailValid
 import me.auth_android.auth_kit.presentation.utils.getPasswordValid
 
+//using only for demo, need create own app view for each application
 @Composable
 fun AccountView(
     toSignInView: () -> Unit,

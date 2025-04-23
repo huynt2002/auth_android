@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
                                 AppView(onAccountView = { navController.navigate(Route.Account) })
                             }
 
+                            //temp
                             composable<Route.Account> {
                                 AccountView(
                                     toSignInView = {

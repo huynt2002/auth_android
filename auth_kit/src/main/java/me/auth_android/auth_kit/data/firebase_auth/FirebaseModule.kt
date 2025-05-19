@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.domain.firebase_auth
+package me.auth_android.auth_kit.data.firebase_auth
 
 import android.content.Context
 import com.google.firebase.Firebase

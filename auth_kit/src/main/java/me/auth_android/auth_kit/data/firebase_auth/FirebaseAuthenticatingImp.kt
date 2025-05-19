@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.domain.firebase_auth
+package me.auth_android.auth_kit.data.firebase_auth
 
 import android.content.Context
 import androidx.credentials.ClearCredentialStateRequest
@@ -13,6 +13,7 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.userProfileChangeRequest
 import java.security.MessageDigest
 import java.util.UUID
@@ -27,9 +28,9 @@ import me.auth_android.auth_kit.data.auth.defines.AuthErrorException
 import me.auth_android.auth_kit.data.auth.defines.AuthResult
 import me.auth_android.auth_kit.data.auth.defines.Authenticating
 import me.auth_android.auth_kit.data.sessionService.SessionService
+import me.auth_android.auth_kit.utils.Failure
 import me.auth_android.auth_kit.utils.Result
 import me.auth_android.auth_kit.utils.Success
-import me.auth_android.auth_kit.utils.Failure
 
 class FirebaseAuthenticatingImp
 @Inject
@@ -121,7 +122,9 @@ constructor(
         return try {
             val rs = auth.createUserWithEmailAndPassword(email, password).await()?.user
             sessionService.updateTime()
-            val profile = userProfileChangeRequest { displayName = userName }
+            val profile = userProfileChangeRequest {
+                UserProfileChangeRequest.Builder().displayName = userName
+            }
             auth.currentUser?.updateProfile(profile)?.await()
             Success(AuthResult(rs?.toAuthUser()))
         } catch (e: FirebaseException) {

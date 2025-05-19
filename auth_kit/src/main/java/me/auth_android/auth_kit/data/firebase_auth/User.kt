@@ -1,4 +1,4 @@
-package me.auth_android.auth_kit.domain.firebase_auth
+package me.auth_android.auth_kit.data.firebase_auth
 
 import com.google.firebase.auth.FirebaseUser
 import java.util.Date
